@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Exercise20_03 {
@@ -63,6 +64,7 @@ public class Exercise20_03 {
 			stateCapitals.add(qAndA);
 		}
 		
+		Collections.shuffle(stateCapitals);
 		
 		Scanner input = new Scanner(System.in);
 
@@ -77,7 +79,7 @@ public class Exercise20_03 {
 				System.out.println("Your answer is correct");
 				correctCount++;
 			} else {
-				System.out.println("The correct answer should be " + stateCapital[i][1]);
+				System.out.println("The correct answer should be " + stateCapitals.get(i)[1]);
 			}
 		}
 		System.out.println("The correct count is " + correctCount);
