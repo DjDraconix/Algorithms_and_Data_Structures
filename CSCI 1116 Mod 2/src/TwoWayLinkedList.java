@@ -44,26 +44,21 @@ class TwoWayLinkedList<E> extends java.util.AbstractSequentialList<E> {
 			tail = head;
 
 		if (head != tail) 
-			head.next.previous = newNode; 
-			// For a two-way linked list, make the next item's previous element the head
+			head.previous = newNode; 
 	}
 
 	/** Add an element to the end of the list */
 	public void addLast(E e) {
 		Node<E> newNode = new Node<E>(e); // Create a new for element e
 
-		Node<E> temp = tail; // For a two-way linked list
-
 		if (tail == null) {
 			head = tail = newNode; // The new node is the only node in list
 		} else {
 			tail.next = newNode; // Link the new with the last node
-			tail = tail.next; // tail now points to the last node
+			newNode.previous = tail;
+			tail = newNode; // tail now points to the last node
 		}
-
 		size++; // Increase size
-
-		// For a two-way linked list, link the tail's previous element to temp
 	}
 
 	/**
@@ -73,22 +68,32 @@ class TwoWayLinkedList<E> extends java.util.AbstractSequentialList<E> {
 	public void add(int index, E e) {
 		if (index == 0) {
 			addFirst(e);
-		} else if (index >= size) {
+		} 
+		else if (index >= size) {
 			addLast(e);
-		} else {
+		} 
+		else {
 			Node<E> current = head;
 			for (int i = 1; i < index; i++) {
 				current = current.next;
 			}
+			
+			
 			Node<E> temp = current.next;
+			
+			
 			current.next = new Node<E>(e);
 			(current.next).next = temp;
+			
+			temp.previous = current.next;
+			current.next.previous = current;
 			size++;
 
 			// For a two-way linked list, link temp's previous element to current's next element
-			// For a two-way linked list, link current's next's previous element to current
+			// For a two-way linked list, link temp's previous element to current's next element
 		}
 	}
+	
 
 	/**
 	 * Remove the head node and return the object that is contained in the
