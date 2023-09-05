@@ -43,8 +43,10 @@ class TwoWayLinkedList<E> extends java.util.AbstractSequentialList<E> {
 		if (tail == null) // the new node is the only node in list
 			tail = head;
 
-		if (head != tail) 
-			head.previous = newNode; 
+		if (head != tail)
+			head.next.previous = newNode;
+		
+		head.previous = null;
 	}
 
 	/** Add an element to the end of the list */
@@ -237,6 +239,7 @@ class TwoWayLinkedList<E> extends java.util.AbstractSequentialList<E> {
 	private class LinkedListIterator<E> implements java.util.ListIterator<E> {
 		@SuppressWarnings("unchecked")
 		private Node<E> current = (Node<E>)head; // Current index
+		@SuppressWarnings("unused")
 		int index = 0;
 
 		public LinkedListIterator() {
@@ -290,7 +293,7 @@ class TwoWayLinkedList<E> extends java.util.AbstractSequentialList<E> {
 
 		@Override
 		public void set(E e) {
-			current.element = e; // TODO Auto-generated method stub
+			current.element = e;
 		}
 	}
 
