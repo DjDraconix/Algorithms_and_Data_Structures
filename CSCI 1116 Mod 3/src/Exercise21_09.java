@@ -1,4 +1,6 @@
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Exercise21_09 {
 	public static void main(String[] args) {
@@ -57,23 +59,26 @@ public class Exercise21_09 {
 
 		Scanner input = new Scanner(System.in);
 
-		int correctCount = 0;
+		Map<String, String> states = new TreeMap<>();
 
 		for (int i = 0; i < stateCapital.length; i++) {
-			// Prompt the user with a question
-			System.out.print("What is the capital of " + stateCapital[i][0] + "? ");
-			String capital = input.nextLine().trim().toLowerCase();
-
-			if (capital.toLowerCase().equals(stateCapital[i][1].toLowerCase())) {
-				System.out.println("Your answer is correct");
-				correctCount++;
-			}
-			else
-				System.out.println("The correct answer should be " + stateCapital[i][1]);
+			states.put(stateCapital[i][0], stateCapital[i][1]);
 		}
 
-		System.out.println("The correct count is " + correctCount);
-		
+		boolean run = true;
+
+		while (run) {
+			System.out.println("Please enter a state or enter \"Exit\" to end program");
+			String userIn = input.next();
+			if(userIn.equalsIgnoreCase("Exit")) {
+				run = false;
+			} else {
+				if(states.containsKey(userIn)) {
+					System.out.println(states.get(userIn) + " is the capital of " + userIn);
+				}
+			}
+		}
+		System.out.println("Come again soon");
 		input.close();
 	}
 }
