@@ -26,7 +26,30 @@ public class Exercise21_11 extends Application {
   private Label lblResult = new Label();
   
   @Override // Override the start method in the Application class
-  public void start(Stage primaryStage) {
+  public void start(Stage primaryStage) throws FileNotFoundException {
+    
+    try{
+      int j = 0;
+      for (int i = 2001; i < 2011; i++) {
+        URL file = new URL("http://liveexample.pearsoncmg.com/data/babynamesranking" + i + ".txt");
+        Scanner in = new Scanner(file.openStream());
+        Map<String, Integer> malePercent = new HashMap<>();
+        Map<String, Integer> girlPercent = new HashMap<>();
+        while (in.hasNext()) {
+          int rank = in.nextInt();
+          malePercent.put(in.next(), rank);
+          in.nextInt();
+          girlPercent.put(in.next(), rank);
+          in.nextInt();
+        }
+        mapForBoy[j] = malePercent;
+        mapForGirl[j] = girlPercent;
+        j++;
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    
     GridPane gridPane = new GridPane();
     gridPane.add(new Label("Select a year:"), 0, 0);
     gridPane.add(new Label("Boy or girl?"), 0, 1);
@@ -58,6 +81,7 @@ public class Exercise21_11 extends Application {
     cboGender.getItems().addAll("Male", "Female");
     cboGender.setValue("Male");
     
+    
   }
 
   /**
@@ -66,20 +90,5 @@ public class Exercise21_11 extends Application {
    */
   public static void main(String[] args) {
     launch(args);
-  }
-  
-  public void CreateMaps(Map<String, Integer>[] mapForBoy, Map<String, Integer>[] mapForGirl) throws FileNotFoundException {
-    for (int i = 2001; i < 2011; i++) {
-      File file = new File("http://liveexample.pearsoncmg.com/data/babynamesranking" + i + ".txt");
-      Scanner in = new Scanner(file);
-      Map<String, Integer> malePercent = new HashMap<>();
-      Map<String, Integer> girlPercent = new HashMap<>();
-      while (file.canRead()) {
-        malePercent.put(in.next(), in.nextInt());
-        girlPercent.put(in.next(), in.nextInt());
-      }
-      mapForBoy.add(malePercent);
-      
-    }
   }
 }
