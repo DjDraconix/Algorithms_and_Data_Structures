@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="CSCI 1116 Mod 1/src/|CSCI 1116 Mod 2/src/|CSCI 1116 Mod 3/src/" kind="src" path=""/>
+	<classpathentry kind="src" path="CSCI 1116 Mod 1/src"/>
+	<classpathentry kind="src" path="CSCI 1116 Mod 2/src"/>
+	<classpathentry kind="src" path="CSCI 1116 Mod 3/src"/>
+	<classpathentry kind="output" path="CSCI 1116 Mod 1/bin"/>
+</classpath>

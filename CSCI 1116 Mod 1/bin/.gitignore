@@ -1,6 +1,30 @@
+/.classpath
+/.project
+/CSCI 1116 Mod 1/
+/CSCI 1116 Mod 2/
+/CSCI 1116 Mod 3/
 /Circle.class
 /Exercise20_03.class
+/Exercise20_09$Ball.class
+/Exercise20_09$MultipleBallPane.class
+/Exercise20_09.class
 /Exercise20_21.class
+/Exercise21_07.class
+/Exercise21_09.class
+/Exercise21_11.class
+/Exercise24_01.class
+/Exercise24_03.class
+/Exercise24_05.class
 /GeometricObject.class
 /GeometricObjectComparator.class
+/MakeQueue.class
+/MyAbstractList.class
+/MyArrayList$ArrayListIterator.class
+/MyArrayList.class
+/MyList.class
+/README.md
 /Rectangle.class
+/TwoWayLinkedList$LinkedListIterator.class
+/TwoWayLinkedList$Node.class
+/TwoWayLinkedList.class
+/WordOccurrence.class

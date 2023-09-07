@@ -1,4 +1,5 @@
 import java.net.URL;
+import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -11,7 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
+import javafx.stage.Stage;import java.io.*;
+
 
 public class Exercise21_11 extends Application {
   private Map<String, Integer>[] mapForBoy = new HashMap[10];
@@ -64,5 +66,20 @@ public class Exercise21_11 extends Application {
    */
   public static void main(String[] args) {
     launch(args);
+  }
+  
+  public void CreateMaps(Map<String, Integer>[] mapForBoy, Map<String, Integer>[] mapForGirl) throws FileNotFoundException {
+    for (int i = 2001; i < 2011; i++) {
+      File file = new File("http://liveexample.pearsoncmg.com/data/babynamesranking" + i + ".txt");
+      Scanner in = new Scanner(file);
+      Map<String, Integer> malePercent = new HashMap<>();
+      Map<String, Integer> girlPercent = new HashMap<>();
+      while (file.canRead()) {
+        malePercent.put(in.next(), in.nextInt());
+        girlPercent.put(in.next(), in.nextInt());
+      }
+      mapForBoy.add(malePercent);
+      
+    }
   }
 }
