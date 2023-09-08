@@ -84,14 +84,30 @@ public class Exercise21_11 extends Application {
     cboGender.setValue("Male");
     
     btFindRanking.setOnAction(e -> {
+      borderPane.getChildren().remove(lblResult);
       lblResult = setLabel(mapForBoy, mapForGirl, cboYear, cboGender, tfName);
+      borderPane.getChildren().add(lblResult);
+      borderPane.setBottom(lblResult);
+      BorderPane.setAlignment(lblResult, Pos.CENTER);
     });
   }
   
-  public static Label setLabel(Map<String, Integer>[] male, Map<String, Integer>[] femail, ComboBox<Integer> cboYear, ComboBox<String> cboGender, TextField tfName) {
-    String gender = cboGender.getSelectedItem();
+  public static Label setLabel(Map<String, Integer>[] male, Map<String, Integer>[] female, ComboBox<Integer> cboYear, ComboBox<String> cboGender, TextField tfName) {
+    String gender = cboGender.getValue();
+    int year = cboYear.getValue();
+    String name = tfName.getText();
+    Map<String, Integer> selectedMap = (gender.equals("Male")) ? male[year - 2001] : female[year - 2001];
     
-    return null;
+    Label resultLabel;
+    
+    if (selectedMap != null && selectedMap.containsKey(name)) {
+        int rank = selectedMap.get(name);
+        resultLabel = new Label(name + " is ranked #" + rank + " in " + year + " among " + gender.toLowerCase() + " names.");
+      } else {
+        resultLabel = new Label(name + " is not ranked in the top 1000 names for " + year + " among " + gender.toLowerCase() + " names.");
+      }
+    
+    return resultLabel;
   }
 
   /**
