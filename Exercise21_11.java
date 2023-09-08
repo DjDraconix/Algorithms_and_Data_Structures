@@ -14,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;import java.io.*;
 import java.awt.*;
+import javax.swing.*;
 
 
 public class Exercise21_11 extends Application {
@@ -87,7 +88,8 @@ public class Exercise21_11 extends Application {
     });
   }
   
-  public static Label setLabel(Map<String, Integer>[] male, Map<String, Integer>[] femail, ComboBox<Integer> year, ComboBox<String> gender, TextField name) {
+  public static Label setLabel(Map<String, Integer>[] male, Map<String, Integer>[] femail, ComboBox<Integer> cboYear, ComboBox<String> cboGender, TextField tfName) {
+    String gender = cboGender.getSelectedItem();
     
     return null;
   }
