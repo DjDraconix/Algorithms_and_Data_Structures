@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;import java.io.*;
+import java.awt.*;
 
 
 public class Exercise21_11 extends Application {
@@ -81,7 +82,14 @@ public class Exercise21_11 extends Application {
     cboGender.getItems().addAll("Male", "Female");
     cboGender.setValue("Male");
     
+    btFindRanking.setOnAction(e -> {
+      lblResult = setLabel(mapForBoy, mapForGirl, cboYear, cboGender, tfName);
+    });
+  }
+  
+  public static Label setLabel(Map<String, Integer>[] male, Map<String, Integer>[] femail, ComboBox<Integer> year, ComboBox<String> gender, TextField name) {
     
+    return null;
   }
 
   /**
