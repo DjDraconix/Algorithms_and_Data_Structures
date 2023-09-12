@@ -8,6 +8,7 @@ public class Exercise22_01 {
 		System.out.print("Enter a string: ");
 		String userString = in.next();
 		userString.toLowerCase();
+		
 		Character[] userChars = new Character[userString.length()];
 		for (int i = 0; i < userString.length(); i++) {
 			userChars[i] = userString.charAt(i);
