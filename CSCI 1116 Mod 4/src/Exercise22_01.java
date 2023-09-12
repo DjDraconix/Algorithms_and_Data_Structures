@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Exercise22_01 {
@@ -8,26 +9,36 @@ public class Exercise22_01 {
 		String userString = in.next();
 		userString.toLowerCase();
 		Character[] userChars = new Character[userString.length()];
-		int[] charValue = new int[userString.length()];
 		for (int i = 0; i < userString.length(); i++) {
 			userChars[i] = userString.charAt(i);
-			charValue[i] = Character.getNumericValue(userChars[i]);
 		}
-		int[][] sequences = new int[userString.length()][26];
-		int sequenceNum = 0;
-		for (int i = 0; i < charValue.length; i++) {
-			if(charValue[i] == 10) {
-				sequences[sequenceNum][0] = 10;
-				int run = 1;
-				for (int j = i + 1; j < charValue.length; j++) {
-					if(charValue[j] == 10 + run) {
-						sequences[sequenceNum][run] = (10 + run);
-						run++;
-					}
-				}
-				sequenceNum++;
+
+		int arrayNum = 0;
+		ArrayList<ArrayList<Character>> sequences = new ArrayList<>();
+		int i = 0;
+		ArrayList<Character> temp = new ArrayList<>();
+		while (i < userChars.length) {
+			if (i == 0 || userChars[i - 1] < userChars[i]) {
+				temp.add(userChars[i]);
+				i++;
+			} else {
+				sequences.add(temp);
+				temp = new ArrayList<>();
+				temp.add(userChars[i]);
+				i++;
+			}
+			if(i == userChars.length) {
+				sequences.add(temp);
 			}
 		}
+		
+		for(int k = 1; k < sequences.size(); k++) {
+			if(sequences.get(k).size() > sequences.get(arrayNum).size())
+				arrayNum = k;
+			
+		}
+		
+		System.out.println("Maximum cosecutive substring is " + sequences.get(arrayNum));
 
 		in.close();
 	}
