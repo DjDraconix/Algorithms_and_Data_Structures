@@ -28,7 +28,7 @@ public class Exercise22_01 {
 				sequenceNum++;
 			}
 		}
-		
+
 		in.close();
 	}
 
