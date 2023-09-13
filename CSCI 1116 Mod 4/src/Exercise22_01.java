@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Exercise22_01 {
+	
+	//time is O(n) because It should be linear
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
