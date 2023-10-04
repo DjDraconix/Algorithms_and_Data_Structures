@@ -26,7 +26,7 @@ public class Exercise25_03 {
 
     tree.inorder();
     System.out.println();
-    //tree.nonRecursiveInorder();
+    tree.nonRecursiveInorder();
   }
 
   public static class BST<E extends Comparable<E>> extends AbstractTree<E> {
@@ -294,8 +294,16 @@ public class Exercise25_03 {
     }
 
     /** Inorder traversal from the root */
+    
+    //currently figuring out the specifics of the code
     public void nonRecursiveInorder() {
-      
-    }
+      if (root == null)
+        return;
+        TreeNode<E> temp = root;
+        while (temp.left != null) {
+          temp = temp.left;
+        }
+      list.add(root.element);
   }
+ }
 }
