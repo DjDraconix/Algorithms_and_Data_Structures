@@ -296,14 +296,15 @@ public class Exercise25_03 {
     /** Inorder traversal from the root */
     
     //currently figuring out the specifics of the code
+    private java.util.ArrayList<E> list = new java.util.ArrayList<E>();
     public void nonRecursiveInorder() {
-      if (root == null)
-        return;
-        TreeNode<E> temp = root;
-        while (temp.left != null) {
-          temp = temp.left;
-        }
-      list.add(root.element);
+      TreeNode<E> temproot = root;
+      int jcounter = 0;
+      while (temproot.left != null) {
+        temproot = temproot.left;
+        jcounter++;
+      }
+      list.add(temproot.element);
+    }
   }
- }
 }
