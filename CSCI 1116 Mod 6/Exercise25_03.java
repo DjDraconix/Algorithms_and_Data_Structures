@@ -1,4 +1,5 @@
-import java.util.Scanner;
+import java.util.Scanner;import java.util.*;
+
 
 public class Exercise25_03 {
   public static void main(String[] args) {
@@ -295,16 +296,16 @@ public class Exercise25_03 {
 
     /** Inorder traversal from the root */
     
-    //currently figuring out the specifics of the code
+    //Website used https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/
     private java.util.ArrayList<E> list = new java.util.ArrayList<E>();
     public void nonRecursiveInorder() {
+      Stack output = new Stack<E>();
       TreeNode<E> temproot = root;
-      int jcounter = 0;
       while (temproot.left != null) {
         temproot = temproot.left;
-        jcounter++;
       }
-      list.add(temproot.element);
+      temproot = temproot.left;
+      
     }
   }
 }
