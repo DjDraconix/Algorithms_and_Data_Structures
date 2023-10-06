@@ -302,6 +302,7 @@ public class Exercise25_03 {
       Stack output = new Stack<E>();
       TreeNode<E> temproot = root;
       while (temproot.left != null) {
+        output.add(temproot.element);
         temproot = temproot.left;
       }
       temproot = temproot.left;
