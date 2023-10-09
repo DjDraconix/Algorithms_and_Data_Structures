@@ -299,13 +299,17 @@ public class Exercise25_03 {
     //Website used https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/
     private java.util.ArrayList<E> list = new java.util.ArrayList<E>();
     public void nonRecursiveInorder() {
+      
       Stack output = new Stack<E>();
       TreeNode<E> temproot = root;
-      while (temproot.left != null) {
+      E hold;
+      
+      while (temproot != null) {
         output.add(temproot.element);
-        temproot = temproot.left;
+        if (temproot.left != null) 
+          temproot = temproot.left;
       }
-      temproot = temproot.left;
+      
       
     }
   }
