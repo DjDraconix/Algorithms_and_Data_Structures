@@ -298,10 +298,10 @@ public class Exercise25_03 {
     /** Inorder traversal from the root */
     
     //Website used https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/
-    private java.util.ArrayList<E> list = new java.util.ArrayList<E>();
     public void nonRecursiveInorder() {
       
       Stack<TreeNode<E>> output = new Stack<TreeNode<E>>();
+      //Step 1 & Step 2
       TreeNode<E> temproot = root;
       output.push(temproot);
       TreeNode<E> hold;
@@ -313,18 +313,20 @@ public class Exercise25_03 {
           removal = false;
         }
         
+        //Step 3
         if (temproot != null) {
           output.push(temproot);
           temproot = temproot.left;
+          System.out.print("Left run ");
         }
         
+        //Step 4
         if (temproot == null) {
           hold = output.pop();
           temproot = hold.right;
           System.out.print(hold.element + " ");
           System.out.print(output.isEmpty() + " ");
         }
-        
         
       }
     }
