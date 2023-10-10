@@ -1,4 +1,5 @@
 import java.util.Scanner;import java.util.*;
+import javax.swing.tree.*;
 
 
 public class Exercise25_03 {
@@ -300,17 +301,32 @@ public class Exercise25_03 {
     private java.util.ArrayList<E> list = new java.util.ArrayList<E>();
     public void nonRecursiveInorder() {
       
-      Stack output = new Stack<E>();
+      Stack<TreeNode<E>> output = new Stack<TreeNode<E>>();
       TreeNode<E> temproot = root;
-      E hold;
+      output.push(temproot);
+      TreeNode<E> hold;
+      boolean removal = true;
       
-      while (temproot != null) {
-        output.add(temproot.element);
-        if (temproot.left != null) 
+      while (temproot != null && !output.isEmpty()) {
+        if (removal) {
+          output.pop();
+          removal = false;
+        }
+        
+        if (temproot != null) {
+          output.push(temproot);
           temproot = temproot.left;
+        }
+        
+        if (temproot == null) {
+          hold = output.pop();
+          temproot = hold.right;
+          System.out.print(hold.element + " ");
+          System.out.print(output.isEmpty() + " ");
+        }
+        
+        
       }
-      
-      
     }
   }
 }
