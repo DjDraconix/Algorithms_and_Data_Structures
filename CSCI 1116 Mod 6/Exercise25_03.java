@@ -307,7 +307,7 @@ public class Exercise25_03 {
       TreeNode<E> hold;
       boolean removal = true;
       
-      while (temproot != null && !output.isEmpty()) {
+      while ((!output.isEmpty() && temproot == null) || temproot != null) {
         if (removal) {
           output.pop();
           removal = false;
@@ -317,7 +317,6 @@ public class Exercise25_03 {
         if (temproot != null) {
           output.push(temproot);
           temproot = temproot.left;
-          System.out.print("Left run ");
         }
         
         //Step 4
@@ -325,7 +324,6 @@ public class Exercise25_03 {
           hold = output.pop();
           temproot = hold.right;
           System.out.print(hold.element + " ");
-          System.out.print(output.isEmpty() + " ");
         }
         
       }
