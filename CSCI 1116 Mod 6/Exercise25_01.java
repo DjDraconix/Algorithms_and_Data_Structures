@@ -47,7 +47,7 @@ public class Exercise25_01 {
      * the longest path of the tree
      */
     public int height() {
-      
+      return 0;
     }
 
     /** 
